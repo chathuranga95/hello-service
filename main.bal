@@ -4,7 +4,7 @@ type VersionDetails record {
     string 'version;
 };
 
-final string 'version = "v1.1";
+final string 'version = "v2.0";
 
 service / on new http:Listener(9090) {
     resource function get diag() returns VersionDetails {
@@ -12,7 +12,7 @@ service / on new http:Listener(9090) {
     }
 }
 
-service / on new http:Listener(9091) {
+service / on new http:Listener(9092) {
     resource function get health() returns VersionDetails {
         return {"endpoint": "health", "version": 'version};
     }
