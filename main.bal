@@ -7,6 +7,6 @@ type VersionDetails record {
 service / on new http:Listener(9090) {
 
     resource function get diag() returns VersionDetails {
-        return {'version: "v1.1"};
+        return {'version: "v2.0"};
     }
 }
