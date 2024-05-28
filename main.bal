@@ -1,5 +1,7 @@
 import ballerina/http;
 
+configurable string versionValue = ?;
+
 type VersionDetails record {
     string 'version;
 };
@@ -7,6 +9,6 @@ type VersionDetails record {
 service / on new http:Listener(9090) {
 
     resource function get diag() returns VersionDetails {
-        return {'version: "v2.0"};
+        return {'version: versionValue};
     }
 }
