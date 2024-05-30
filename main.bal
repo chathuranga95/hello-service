@@ -1,6 +1,6 @@
 import ballerina/http;
 
-configurable string versionValue = ?;
+// configurable string versionValue = ?;
 
 type VersionDetails record {
     string 'version;
@@ -9,6 +9,6 @@ type VersionDetails record {
 service / on new http:Listener(9090) {
 
     resource function get diag() returns VersionDetails {
-        return {'version: versionValue};
+        return {'version: "v1.0-hardcoded"};
     }
 }
