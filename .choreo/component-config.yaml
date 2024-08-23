@@ -7,8 +7,10 @@ spec:
       context: /pets
       port: 9090
       schemaFilePath: specs/other/petstore_openapi.yaml
+      type: REST
     - name: World Bank
       networkVisibility: Project
       context: /bank
       port: 9091
       schemaFilePath: specs/worldbank_openapi.yaml
+      type: REST
