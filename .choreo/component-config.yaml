@@ -8,9 +8,9 @@ spec:
       port: 9090
       schemaFilePath: specs/other/petstore_openapi.yaml
       type: REST
-    - name: World Bank
+    - name: Cake Store
       networkVisibility: Public
       context: /
       port: 9091
-      schemaFilePath: specs/worldbank_openapi.yaml
+      schemaFilePath: specs/cake_openapi.yaml
       type: REST
