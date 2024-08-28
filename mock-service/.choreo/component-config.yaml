@@ -8,10 +8,9 @@ spec:
       port: 9090
       schemaFilePath: specs/other/petstore_openapi.yaml
       type: REST
-    # Renamed here -- mock commit
-    - name: Cake Store
-      networkVisibility: Public
-      context: /
-      port: 9091
-      schemaFilePath: specs/cake_openapi.yaml
-      type: REST
+    # - name: Cake Store
+    #   networkVisibility: Public
+    #   context: /
+    #   port: 9091
+    #   schemaFilePath: specs/cake_openapi.yaml
+    #   type: REST
