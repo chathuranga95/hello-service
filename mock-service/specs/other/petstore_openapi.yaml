@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Pet API
-  description: A simple API to get a random list of pets
+  description: A simple API to get a random list of pets - mock comment
   version: 1.0.0
 
 paths:
