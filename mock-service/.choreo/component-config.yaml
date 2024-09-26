@@ -3,7 +3,7 @@ kind: ComponentConfig
 spec:
   inbound:
     - name: Pet Store
-      networkVisibility: Public
+      networkVisibility: Organization
       context: /
       port: 9090
       schemaFilePath: specs/other/petstore_openapi.yaml
