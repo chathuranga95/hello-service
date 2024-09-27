@@ -4,7 +4,7 @@ spec:
   inbound:
     - name: Pet Store
       networkVisibility: Organization
-      context: /
+      context: /api/v1
       port: 9090
       schemaFilePath: specs/other/petstore_openapi.yaml
       type: REST
