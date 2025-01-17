@@ -22,7 +22,7 @@ configuration:
         connectionRef:
           name: hello-conn
           key: ServiceURL
-    - name: MY_SVC_URL
+    - name: MY_API_KEY
       valueFrom: 
         connectionRef:
           name: hello-conn
