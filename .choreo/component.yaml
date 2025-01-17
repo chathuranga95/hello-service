@@ -8,7 +8,7 @@ endpoints:
     type: REST
     networkVisibilities: 
       - Public
-    schemaFilePath: bff_service_openapi.yaml
+    schemaFilePath: hello_service_openapi.yaml
 dependencies:
   connectionReferences:
   - name: dummy-conn-1
