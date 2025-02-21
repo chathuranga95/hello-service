@@ -14,8 +14,8 @@ type SuccessResponse record {
 
 type FailedResponse record {
     FAILED actionStatus;
-    string failureReason;
-    string failureDEscription;
+    string failureReason?;
+    string failureDEscription?;
 };
 
 type User record {

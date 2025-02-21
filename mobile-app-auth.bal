@@ -1,4 +1,5 @@
 import ballerina/log;
+
 isolated function isMobileAppAuthRequest(RequestHeaders[]? additionalHeaders) returns boolean {
     log:printDebug("Checking if the request is a mobile app auth request", additionalHeaders = additionalHeaders);
     if additionalHeaders is () {

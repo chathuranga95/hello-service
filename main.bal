@@ -4,7 +4,7 @@ import ballerina/log;
 service / on new http:Listener(9090) {
     resource function post .(RequestBody payload) returns SuccessResponseOk|ErrorResponseBadRequest|ErrorResponseInternalServerError {
         do {
-            log:printDebug("Received a request to the service",payload = payload);
+            log:printDebug("Received a request to the service", payload = payload);
             RequestHeaders[]? additionalHeaders = payload.event?.request?.additionalHeaders;
             if !isMobileAppAuthRequest(additionalHeaders) {
                 log:printDebug("Skip the request as it's not a mobile app auth request!");
@@ -18,7 +18,21 @@ service / on new http:Listener(9090) {
                     return <ErrorResponseBadRequest>{body: {actionStatus: ERROR, errorMessage: msg, errorDescription: "userId & other params are mandatory to proceed the request"}};
                 }
                 log:printDebug("Extracted additional parameters from the request", requestParams = requestParams);
-                return <SuccessResponseOk>{body: {actionStatus: SUCCESS, operations: []}};
+                return <SuccessResponseOk>{
+                    body: {
+                        actionStatus: SUCCESS,
+                        operations: [
+                            {
+                                op: "add",
+                                path: "/accessToken/claims/-",
+                                value: {
+                                    name: "userId",
+                                    value: "123456"
+                                }
+                            }
+                        ]
+                    }
+                };
             }
             return <ErrorResponseBadRequest>{body: {actionStatus: ERROR, errorMessage: "Invalid action type", errorDescription: "Support is available only for the PRE_ISSUE_ACCESS_TOKEN action type"}};
         } on fail error err {
