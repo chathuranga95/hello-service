@@ -1,22 +1,25 @@
 import ballerina/http;
 
-type UserResp record {
-    User[] users;
+type ExpenseResp record {
+    Expense[] expenses;
+    float total;
 };
 
-type User record {
-    string name;
-    int age;
+type Expense record {
+    string title;
+    float amount;
 };
 
-service / on new http:Listener(9090) {
-    resource function get users() returns UserResp {
-        // return a mock user response
+service / on new http:Listener(9091) {
+    resource function get expenses() returns ExpenseResp {
+        // return a mock expense response
         return {
-            users: [
-                {name: "John", age: 30},
-                {name: "Doe", age: 25}
-            ]
+            expenses: [
+                {title: "Travel", amount: 100.0},
+                {title: "Food", amount: 50.0},
+                {title: "Accommodation", amount: 150.0}
+            ],
+            total: 300.0
         };
     }
 }
