@@ -1,0 +1,22 @@
+{
+	"info": {
+		"_postman_id": "00662a49-a37f-402b-ac1b-159520aef9e4",
+		"name": "Dotnet-Greeter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22129722"
+	},
+	"item": [
+		{
+			"name": "greet",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://1456f846-f4f9-4e8f-bb99-a461df78c2d4-dev.e1-us-east-azure.choreoapis.dev/chathurangastest/dotnet-greeter/v1/greeter/greet"
+			},
+			"response": []
+		}
+	]
+}
