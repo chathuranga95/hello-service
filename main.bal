@@ -1,22 +1,14 @@
 import ballerina/http;
+import ballerina/random;
 
-type UserResp record {
-    User[] users;
-};
-
-type User record {
-    string name;
-    int age;
-};
+type RandomIntResp record {|
+    int randomInt;
+|};
 
 service / on new http:Listener(9090) {
-    resource function get users() returns UserResp {
-        // return a mock user response
-        return {
-            users: [
-                {name: "John", age: 30},
-                {name: "Doe", age: 25}
-            ]
-        };
+    resource function get random\-int() returns RandomIntResp|error {
+        int randomInt = check random:createIntInRange(1, 100);
+        RandomIntResp randomIntResp = {randomInt};
+        return randomIntResp;
     }
 }
