@@ -1,22 +1,11 @@
-import ballerina/http;
+import ballerina/graphql;
 
-type UserResp record {
-    User[] users;
-};
+// Service attached to a GraphQL listener exposes a GraphQL service on the provided port.
+service /graphql on new graphql:Listener(9090) {
 
-type User record {
-    string name;
-    int age;
-};
-
-service / on new http:Listener(9090) {
-    resource function get users() returns UserResp {
-        // return a mock user response
-        return {
-            users: [
-                {name: "John", age: 30},
-                {name: "Doe", age: 25}
-            ]
-        };
+    // A resource method with `get` accessor inside a `graphql:Service` represents a field in the
+    // root `Query` type.
+    resource function get greeting() returns string {
+        return "Hello, World";
     }
 }
