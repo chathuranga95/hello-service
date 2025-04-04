@@ -4,7 +4,9 @@ type VersionDetails record {
     string 'version;
 };
 
-configurable VersionDetails? versionDetails = ();
+configurable VersionDetails? versionDetails = {
+    'version: "dv1.0"
+};
 
 service / on new http:Listener(9090) {
 
