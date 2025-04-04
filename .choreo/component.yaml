@@ -3,7 +3,7 @@ endpoints:
   - name: gql-hello
     displayName: GQL hello
     service:
-      basePath: /graphql
+      basePath: /
       port: 9090
     type: GraphQL
     networkVisibilities: 
