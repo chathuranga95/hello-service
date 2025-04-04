@@ -1,0 +1,39 @@
+schemaVersion: 1.2
+endpoints:
+  - name: hello
+    displayName: Hello EP
+    service:
+      basePath: /
+      port: 9090
+    type: REST
+    networkVisibilities: 
+      - Public
+    schemaFilePath: openapi.yaml
+  # +optional List of files to be injected into the component from config form
+configurations:
+  file:
+    # +required name of the file
+    - name: Config.toml
+      # +required path to mount the file at
+      mountPath: /
+      # +required file type
+      # Supported types - yaml, json and toml
+      type: yaml
+      # +required define keys of the file
+      values:
+        # keys of the file
+        # +required at least one key
+        - name: versionDetails
+          # +required value source
+          # Allowed value sources: connectionRef, configForm
+          valueFrom:
+            # +required config form value source
+            configForm:
+              type: object
+              # +optional display name inside the config form, name will be shown in config form if not specified
+              displayName: Version
+              # +optional default value is string if not specified
+              # Allowed types - string, number, boolean, secret, object, array
+              properties:
+                - name: version
+                  displayName: Version
